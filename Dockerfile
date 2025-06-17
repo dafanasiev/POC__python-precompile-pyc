@@ -5,6 +5,7 @@ FROM base AS build
 WORKDIR /app
 COPY . .
 RUN python -m compileall -b .
+# TODO: use COPY --exclude in final (not supported yet)
 RUN find . -name "*.py" -type f -delete
 
 FROM base AS final
